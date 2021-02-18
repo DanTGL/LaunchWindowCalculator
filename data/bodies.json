@@ -1,0 +1,10 @@
+{
+    "kerbin": {
+        "meanAnomalyAtEpoch": 3.14,
+        "inclination": 0,
+        "ecc": 0,
+        "semiMajor": 13599840256,
+        "epoch": 0,
+        "arguemntOfPeriapsis": 0
+    }
+}
