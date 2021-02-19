@@ -13,12 +13,16 @@ class Renderer {
         const scale = 0.0000000001;
         const resolution = 360;
         
-        this.orbit = new Orbit(100, 100, 25, 0.75, 90 * (Math.PI / 180));
+        this.orbit = new Orbit(5, 100, 100, 25, 0.75, 90 * (Math.PI / 180), 0);
     }
 
 }
 
-
+export function renderOrbit(context: CanvasRenderingContext2D, semiMajor: number, ecc: number, aop: number): void {
+    const semiMinor = semiMajor * Math.sqrt(1 - Math.pow(ecc, 2));
+    context.ellipse(100, 100, semiMajor, semiMinor, aop * (Math.PI / 180), 0, 2 * Math.PI);
+    context.stroke();
+}
 
 function render() {
     const canvas = document.getElementById("canvas") as HTMLCanvasElement;

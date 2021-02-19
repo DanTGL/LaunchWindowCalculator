@@ -16,6 +16,9 @@
     <canvas id="canvas" width="200" height="200"></canvas>
 
     <div class="slidecontainer">
+        <p>Epoch</p>
+        <input type="range" min="0" max="10000" value="100" class="slider" id="epochRange">
+
         <p>Argument of Periapsis</p>
         <input type="range" min="0" max="359" value="0" class="slider" id="aopRange">
 
@@ -25,8 +28,6 @@
 </body>
 
 <script>
-    require("./dist/orbit.js")
-    require("./dist/renderer.js")
     require("./dist/sim.js")
 </script>
 </html>
