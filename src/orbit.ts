@@ -13,14 +13,13 @@ export class Orbit {
     private ecc: number;
     private aop: number;
 
-    private SGP: number;    // Standard gravitational parameter
     private meanAnomaly: number;
     private initialEpoch: number;
-    private focusMass: number;
+    private orbitalPeriod: number;
     private meanMotion: number;
 
-    constructor(focusMass: number, posX: number, posY: number, semiMajor: number, ecc: number, aop: number, initialEpoch: number) {
-        this.focusMass = 0.00000005;
+    constructor(orbitalPeriod: number, posX: number, posY: number, semiMajor: number, ecc: number, aop: number, initialEpoch: number) {
+        this.orbitalPeriod = orbitalPeriod;
         this.posX = posX;
         this.posY = posY;
         this.semiMajor = semiMajor;
@@ -32,8 +31,7 @@ export class Orbit {
         this.meanAnomaly = 20 * (Math.PI / 180);
         this.initialEpoch = initialEpoch;
 
-        this.SGP = G * focusMass;
-        this.meanMotion = Math.sqrt(this.SGP / Math.pow(this.semiMajor, 3));
+        this.meanMotion = 2 * Math.PI / orbitalPeriod;
     }
 
     getCurrentMeanAnomaly(epoch: number): number {

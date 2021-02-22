@@ -5,6 +5,7 @@
         "ecc": 0,
         "semiMajor": 13599840256,
         "epoch": 0,
-        "arguemntOfPeriapsis": 0
+        "arguemntOfPeriapsis": 0,
+        "orbitalPeriod": 50
     }
 }

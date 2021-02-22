@@ -21,8 +21,8 @@ class Simulation {
         this.focusY = 100;
     }
 
-    addOrbit(meanAnomaly: number, semiMajor: number, ecc: number, aop: number) {
-        this.orbits.push(new Orbit(50000000, this.focusX, this.focusY, semiMajor, ecc, aop * (Math.PI / 180), 0));
+    addOrbit(orbitalPeriod: number, meanAnomaly: number, semiMajor: number, ecc: number, aop: number) {
+        this.orbits.push(new Orbit(orbitalPeriod, this.focusX, this.focusY, semiMajor, ecc, aop * (Math.PI / 180), 0));
     }
 
     
@@ -50,8 +50,8 @@ class Simulation {
 
 const sim = new Simulation();
 
-sim.addOrbit(20, 50, 0.5, 45);
-sim.addOrbit(20, 25, 0.75, 90);
+sim.addOrbit(50, 20, 50, 0.5, 45);
+sim.addOrbit(25, 20, 25, 0.75, 90);
 
 sim.render();
 
