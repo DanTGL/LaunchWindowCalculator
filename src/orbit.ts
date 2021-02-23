@@ -2,14 +2,11 @@
 
 import { calcDistance, calcEccentricAnomaly, calcTrueAnomaly } from "./math";
 
-import {G} from "./sim";
-
 export class Orbit {
 
     private posX: number;
     private posY: number;
     private semiMajor: number;
-    private semiMinor: number;
     private ecc: number;
     private aop: number;
 
@@ -23,7 +20,6 @@ export class Orbit {
         this.posX = posX;
         this.posY = posY;
         this.semiMajor = semiMajor;
-        this.semiMinor = semiMajor * Math.sqrt(1 - Math.pow(ecc, 2));
         this.ecc = ecc;
         this.aop = aop;
 
@@ -44,7 +40,7 @@ export class Orbit {
         const r = calcDistance(this.semiMajor, this.ecc, E);
         console.log(epoch);
         context.beginPath();
-        //context.ellipse(this.posX, this.posY, this.semiMajor, this.semiMinor, 0, 0, 2 * Math.PI);
+
         for (let i = 0; i < 2 * Math.PI; i += Math.PI / 180) {
             const cos_i = Math.cos(i);
             
@@ -63,8 +59,6 @@ export class Orbit {
         context.beginPath();
         const rectX = this.posX + (r * Math.cos(v));
         const rectY = (this.posY - (r * Math.sin(v)));
-        //const rectX = this.semiMajor * (Math.cos(E) - this.ecc);
-        //const rectY = this.semiMinor * Math.sin(E);
         console.log(rectX + ", " + rectY);
         context.fillRect(rectX, rectY, 3, 3);
         context.closePath();

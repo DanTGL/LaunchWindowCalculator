@@ -1,9 +1,7 @@
 "use strict";
 
 import * as $ from 'jquery';
-import { Renderer } from "electron";
 import { Orbit } from "./orbit";
-import { renderOrbit } from "./render_utils";
 
 export const G: number = Math.pow(6.67408,-11);
 
