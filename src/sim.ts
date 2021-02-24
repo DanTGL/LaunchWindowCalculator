@@ -62,6 +62,10 @@ $("input[type=range]").on("input", () => {
     const eccentricity = $("#eccRange").val() as number;
     const semiMajor = 25;
     const aop = ($("#aopRange").val() as number);
+
+    $("#epoch").text($("#epochRange").val() as number);
+    $("#aop").text(aop);
+    $("#ecc").text(eccentricity);
     //ctx.beginPath();
     //renderOrbit(ctx, semiMajor, eccentricity, aop);
     //ctx.closePath();
