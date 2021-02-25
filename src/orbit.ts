@@ -1,6 +1,6 @@
 "use strict";
 
-import { calcDistance, calcEccentricAnomaly, calcTrueAnomaly } from "./math";
+import { calcDistance, calcEccentricAnomaly, calcTrueAnomaly } from "./math/math_utils";
 
 export class Orbit {
 

@@ -1,6 +1,7 @@
 "use strict";
 
 import * as $ from 'jquery';
+import { calcEccentricAnomaly } from './math/math_utils';
 import {Orbit} from './orbit';
 
 class Renderer {
@@ -18,10 +19,13 @@ class Renderer {
 
 }
 
-export function renderOrbit(context: CanvasRenderingContext2D, semiMajor: number, ecc: number, aop: number): void {
+export function renderOrbit(ctx: CanvasRenderingContext2D, focusX: number, focusY: number, semiMajor: number, ecc: number, aop: number): void {
+    const centerX = focusX - semiMajor * ecc * Math.cos(aop);
+    const centerY = focusY - semiMajor * ecc * Math.sin(aop);
+
     const semiMinor = semiMajor * Math.sqrt(1 - Math.pow(ecc, 2));
-    context.ellipse(100, 100, semiMajor, semiMinor, aop * (Math.PI / 180), 0, 2 * Math.PI);
-    context.stroke();
+    ctx.ellipse(centerX, centerY, semiMajor, semiMinor, aop, 0, 2 * Math.PI);
+    ctx.stroke();
 }
 
 function render() {

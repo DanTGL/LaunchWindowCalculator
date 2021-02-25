@@ -3,6 +3,8 @@
 import * as $ from 'jquery';
 import { Orbit } from "./orbit";
 
+import { renderOrbit } from "./render_utils";
+
 export const G: number = Math.pow(6.67408,-11);
 
 class Simulation {
@@ -42,6 +44,8 @@ class Simulation {
         this.orbits.forEach(orbit => {
             orbit.render(ctx, $("#epochRange").val() as number);
         });
+
+        renderOrbit(ctx, this.focusX - 5, this.focusY + 15, 35, 0.56, 45 * Math.PI / 180);
     }
 
 }
