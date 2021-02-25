@@ -54,23 +54,7 @@ sim.addOrbit(25, 20, 25, 0.75, 90);
 sim.render();
 
 $("input[type=range]").on("input", () => {
-    const canvas = document.getElementById("canvas") as HTMLCanvasElement;
-    const ctx = canvas.getContext("2d");
-
     sim.render();
 
-    const eccentricity = $("#eccRange").val() as number;
-    const semiMajor = 25;
-    const aop = ($("#aopRange").val() as number);
-
     $("#epoch").text($("#epochRange").val() as number);
-    $("#aop").text(aop);
-    $("#ecc").text(eccentricity);
-    //ctx.beginPath();
-    //renderOrbit(ctx, semiMajor, eccentricity, aop);
-    //ctx.closePath();
-});
-
-$(function() {
-    console.log("idk123");
 });
