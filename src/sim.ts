@@ -14,11 +14,13 @@ class Simulation {
     private focusX: number;
     private focusY: number;
 
-
     constructor() {
         this.orbits = new Array<Orbit>();
-        this.focusX = 100;
-        this.focusY = 100;
+
+        const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+        
+        this.focusX = canvas.width / 2;
+        this.focusY = canvas.height / 2;
     }
 
     addOrbit(orbitalPeriod: number, meanAnomaly: number, semiMajor: number, ecc: number, aop: number) {
@@ -36,7 +38,7 @@ class Simulation {
         ctx.fillStyle = "green";
 
         ctx.beginPath();
-        ctx.fillRect(this.focusX, this.focusY, 4, 4);
+        ctx.fillRect(this.focusX, this.focusY, 2, 2);
         ctx.closePath();
         
         ctx.fillStyle = "blue";
@@ -45,15 +47,15 @@ class Simulation {
             orbit.render(ctx, $("#epochRange").val() as number);
         });
 
-        renderOrbit(ctx, this.focusX - 5, this.focusY + 15, 35, 0.56, 45 * Math.PI / 180);
+        renderOrbit(ctx, this.focusX - 5, this.focusY + 15, 60, 0.56, 45 * Math.PI / 180);
     }
 
 }
 
 const sim = new Simulation();
 
-sim.addOrbit(50, 20, 50, 0.5, 45);
-sim.addOrbit(25, 20, 25, 0.75, 90);
+sim.addOrbit(50, 20, 75, 0.5, 45);
+sim.addOrbit(25, 20, 50, 0.75, 90);
 
 sim.render();
 
