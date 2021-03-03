@@ -47,7 +47,7 @@ class Simulation {
             orbit.render(ctx, $("#epochRange").val() as number);
         });
 
-        renderOrbit(ctx, this.focusX - 5, this.focusY + 15, 60, 0.56, 45 * Math.PI / 180);
+        renderOrbit(ctx, this.focusX, this.focusY, 60, 0.56, 15 * Math.PI / 180);
     }
 
 }

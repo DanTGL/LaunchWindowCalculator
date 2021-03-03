@@ -21,10 +21,11 @@ class Renderer {
 
 export function renderOrbit(ctx: CanvasRenderingContext2D, focusX: number, focusY: number, semiMajor: number, ecc: number, aop: number): void {
     const centerX = focusX - semiMajor * ecc * Math.cos(aop);
-    const centerY = focusY - semiMajor * ecc * Math.sin(aop);
+    const centerY = focusY + semiMajor * ecc * Math.sin(aop);
 
     const semiMinor = semiMajor * Math.sqrt(1 - Math.pow(ecc, 2));
-    ctx.ellipse(centerX, centerY, semiMajor, semiMinor, aop, 0, 2 * Math.PI);
+
+    ctx.ellipse(centerX, centerY, semiMajor, semiMinor, -aop, 0, 2 * Math.PI);
     ctx.stroke();
 }
 
@@ -43,8 +44,6 @@ function render() {
     const semiMinor = semiMajor * Math.sqrt(1 - Math.pow(eccentricity, 2));
 
     //this.ctx.lineWidth = 2;
-
-    
     
 }
 
