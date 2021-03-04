@@ -60,7 +60,7 @@ export class Orbit {
         const rectX = this.posX + (r * Math.cos(v));
         const rectY = (this.posY - (r * Math.sin(v)));
         console.log(rectX + ", " + rectY);
-        context.fillRect(rectX, rectY, 3, 3);
+        context.fillRect(rectX, rectY, 5, 5);
         context.closePath();
     }
 
